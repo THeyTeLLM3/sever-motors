@@ -1,0 +1,25 @@
+{% extends "factory/base.html" %}
+{% load static %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <h1>Север Моторс</h1>
+    <p class="lead">На нашем заводе собирают легковые машины и фургоны. Здесь можно посмотреть модели и узнать, как их выпускают.</p>
+    <a class="button" href="{% url 'factory:vehicles' %}">Смотреть модели</a>
+  </div>
+  <img class="hero-photo" src="{% static 'factory/bmw.png' %}" alt="Чёрный BMW сбоку" width="2058" height="813">
+</section>
+<section class="cards">
+  <article>
+    <h2>О компании</h2>
+    <p>Чем занимается завод и как с нами связаться.</p>
+    <a href="{% url 'factory:about' %}">О заводе</a>
+  </article>
+  <article>
+    <h2>Производство</h2>
+    <p>Как собирают и проверяют машины.</p>
+    <a href="{% url 'factory:production' %}">Этапы сборки</a>
+  </article>
+</section>
+{% endblock %}

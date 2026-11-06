@@ -1,0 +1,6 @@
+{% extends "factory/base.html" %}
+{% block title %}О компании{% endblock %}
+{% block content %}
+<section class="intro"><p class="eyebrow">01 / ПРЕДПРИЯТИЕ</p><h1>О компании</h1><p class="lead">«Север Моторс» — учебный пример завода полного цикла. Инженеры разрабатывают платформы, а производственные цеха собирают и проверяют готовые автомобили.</p></section>
+<section class="cards"><article><h2>Контакты</h2><p>К кому обратиться по вопросам поставок и посещения завода.</p><a href="{% url 'factory:contacts' %}">Открыть контакты →</a></article><article><h2>Как нас найти</h2><p>Схема подъезда к проходной и порядок посещения.</p><a href="{% url 'factory:directions' %}">Посмотреть маршрут →</a></article></section>
+{% endblock %}
