@@ -1,148 +1,148 @@
 [
-{
-  "model": "factory.vehiclecategory",
-  "pk": 2,
-  "fields": {
-    "name": "Коммерческий транспорт",
-    "description": "Автомобили для перевозки грузов."
+  {
+    "model": "factory.vehiclecategory",
+    "pk": 2,
+    "fields": {
+      "name": "Коммерческий транспорт",
+      "description": "Автомобили для перевозки грузов."
+    }
+  },
+  {
+    "model": "factory.vehiclecategory",
+    "pk": 1,
+    "fields": {
+      "name": "Легковые автомобили",
+      "description": "Автомобили для повседневных поездок."
+    }
+  },
+  {
+    "model": "factory.workshop",
+    "pk": 2,
+    "fields": {
+      "name": "Кузовной цех",
+      "building": "Корпус 1",
+      "description": "Сварка и окраска кузовов."
+    }
+  },
+  {
+    "model": "factory.workshop",
+    "pk": 1,
+    "fields": {
+      "name": "Сборочный цех",
+      "building": "Корпус 2",
+      "description": "Установка двигателя, трансмиссии и элементов салона."
+    }
+  },
+  {
+    "model": "factory.workshop",
+    "pk": 3,
+    "fields": {
+      "name": "Участок испытаний",
+      "building": "Корпус 3",
+      "description": "Стендовая проверка готовых автомобилей."
+    }
+  },
+  {
+    "model": "factory.supplier",
+    "pk": 1,
+    "fields": {
+      "name": "Волга Комплект",
+      "email": "orders@volga.example",
+      "phone": "+7 (000) 000-10-20",
+      "city": "Нижний Новгород"
+    }
+  },
+  {
+    "model": "factory.supplier",
+    "pk": 2,
+    "fields": {
+      "name": "Металл Деталь",
+      "email": "sales@metal.example",
+      "phone": "+7 (000) 000-20-30",
+      "city": "Тула"
+    }
+  },
+  {
+    "model": "factory.vehicle",
+    "pk": 1,
+    "fields": {
+      "name": "Север Седан",
+      "category": 1,
+      "description": "Учебная модель легкового автомобиля. Для демонстрации каталога использована фотография BMW из первой практической работы.",
+      "price": "2450000.00",
+      "power": 190,
+      "photo": "demo/bmw.png",
+      "is_active": true,
+      "created_at": "2026-11-17T06:44:12.739Z"
+    }
+  },
+  {
+    "model": "factory.part",
+    "pk": 1,
+    "fields": {
+      "name": "Тормозной узел",
+      "article": "SM-BR-001",
+      "supplier": 1,
+      "description": "Дисковый тормозной механизм передней оси. Фото показывает узел в сборе.",
+      "price": "6500.00",
+      "stock": 84,
+      "photo": "demo/brake.jpg"
+    }
+  },
+  {
+    "model": "factory.part",
+    "pk": 2,
+    "fields": {
+      "name": "Фильтр салона",
+      "article": "SM-FL-002",
+      "supplier": 1,
+      "description": "Сменный фильтрующий элемент.",
+      "price": "850.00",
+      "stock": 120,
+      "photo": "demo/cabin-filter.jpg"
+    }
+  },
+  {
+    "model": "factory.employee",
+    "pk": 2,
+    "fields": {
+      "full_name": "Анна Викторовна Белова",
+      "position": "Мастер участка",
+      "workshop": 1,
+      "hired_on": "2023-09-01"
+    }
+  },
+  {
+    "model": "factory.employee",
+    "pk": 1,
+    "fields": {
+      "full_name": "Павел Сергеевич Орлов",
+      "position": "Инспектор ОТК",
+      "workshop": 3,
+      "hired_on": "2024-03-15"
+    }
+  },
+  {
+    "model": "factory.productionorder",
+    "pk": 1,
+    "fields": {
+      "number": "ПЗ-2026-017",
+      "vehicle": 1,
+      "workshop": 1,
+      "quantity": 12,
+      "planned_on": "2026-11-20",
+      "status": "in_progress"
+    }
+  },
+  {
+    "model": "factory.qualitycheck",
+    "pk": 1,
+    "fields": {
+      "order": 1,
+      "inspector": 1,
+      "checked_on": "2026-11-17",
+      "passed": true,
+      "notes": "Проверены тормозная система, освещение и крепления. Замечаний нет."
+    }
   }
-},
-{
-  "model": "factory.vehiclecategory",
-  "pk": 1,
-  "fields": {
-    "name": "Легковые автомобили",
-    "description": "Автомобили для повседневных поездок."
-  }
-},
-{
-  "model": "factory.workshop",
-  "pk": 2,
-  "fields": {
-    "name": "Кузовной цех",
-    "building": "Корпус 1",
-    "description": "Сварка и окраска кузовов."
-  }
-},
-{
-  "model": "factory.workshop",
-  "pk": 1,
-  "fields": {
-    "name": "Сборочный цех",
-    "building": "Корпус 2",
-    "description": "Установка двигателя, трансмиссии и элементов салона."
-  }
-},
-{
-  "model": "factory.workshop",
-  "pk": 3,
-  "fields": {
-    "name": "Участок испытаний",
-    "building": "Корпус 3",
-    "description": "Стендовая проверка готовых автомобилей."
-  }
-},
-{
-  "model": "factory.supplier",
-  "pk": 1,
-  "fields": {
-    "name": "Волга Комплект",
-    "email": "orders@volga.example",
-    "phone": "+7 (000) 000-10-20",
-    "city": "Нижний Новгород"
-  }
-},
-{
-  "model": "factory.supplier",
-  "pk": 2,
-  "fields": {
-    "name": "Металл Деталь",
-    "email": "sales@metal.example",
-    "phone": "+7 (000) 000-20-30",
-    "city": "Тула"
-  }
-},
-{
-  "model": "factory.vehicle",
-  "pk": 1,
-  "fields": {
-    "name": "Север Седан",
-    "category": 1,
-    "description": "Учебная модель легкового автомобиля. Для демонстрации каталога использована фотография BMW из первой практической работы.",
-    "price": "2450000.00",
-    "power": 190,
-    "photo": "demo/bmw.png",
-    "is_active": true,
-    "created_at": "2026-11-17T06:44:12.739Z"
-  }
-},
-{
-  "model": "factory.part",
-  "pk": 1,
-  "fields": {
-    "name": "Тормозной узел",
-    "article": "SM-BR-001",
-    "supplier": 1,
-    "description": "Дисковый тормозной механизм передней оси. Фото показывает узел в сборе.",
-    "price": "6500.00",
-    "stock": 84,
-    "photo": "demo/brake.jpg"
-  }
-},
-{
-  "model": "factory.part",
-  "pk": 2,
-  "fields": {
-    "name": "Фильтр салона",
-    "article": "SM-FL-002",
-    "supplier": 1,
-    "description": "Сменный фильтрующий элемент.",
-    "price": "850.00",
-    "stock": 120,
-    "photo": ""
-  }
-},
-{
-  "model": "factory.employee",
-  "pk": 2,
-  "fields": {
-    "full_name": "Анна Викторовна Белова",
-    "position": "Мастер участка",
-    "workshop": 1,
-    "hired_on": "2023-09-01"
-  }
-},
-{
-  "model": "factory.employee",
-  "pk": 1,
-  "fields": {
-    "full_name": "Павел Сергеевич Орлов",
-    "position": "Инспектор ОТК",
-    "workshop": 3,
-    "hired_on": "2024-03-15"
-  }
-},
-{
-  "model": "factory.productionorder",
-  "pk": 1,
-  "fields": {
-    "number": "ПЗ-2026-017",
-    "vehicle": 1,
-    "workshop": 1,
-    "quantity": 12,
-    "planned_on": "2026-11-20",
-    "status": "in_progress"
-  }
-},
-{
-  "model": "factory.qualitycheck",
-  "pk": 1,
-  "fields": {
-    "order": 1,
-    "inspector": 1,
-    "checked_on": "2026-11-17",
-    "passed": true,
-    "notes": "Проверены тормозная система, освещение и крепления. Замечаний нет."
-  }
-}
 ]
