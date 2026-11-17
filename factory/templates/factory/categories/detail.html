@@ -1,0 +1,11 @@
+{% extends "factory/base.html" %}
+{% block title %}{{ object }}{% endblock %}
+{% block content %}
+<a class="back" href="{% url 'factory:category_list' %}">← Категории автомобилей</a>
+<section class="detail-panel"><div><p class="eyebrow">КАТЕГОРИИ АВТОМОБИЛЕЙ</p><h1>{{ object }}</h1><dl>
+<dt>Название</dt><dd>{{ object.name|default_if_none:"—" }}</dd>
+<dt>Описание</dt><dd>{{ object.description|default_if_none:"—" }}</dd>
+</dl></div>
+</section>
+<div class="actions"><a class="button" href="{% url 'factory:category_update' object.pk %}">Изменить</a><a class="button" href="{% url 'factory:category_delete' object.pk %}">Удалить</a><a href="{% url 'factory:category_list' %}">Вернуться к списку</a></div>
+{% endblock %}

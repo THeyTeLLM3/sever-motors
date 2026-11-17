@@ -1,0 +1,13 @@
+{% extends "factory/base.html" %}
+{% block title %}Категории автомобилей{% endblock %}
+{% block content %}
+<section class="section-heading"><div><p class="eyebrow">ДАННЫЕ ПРЕДПРИЯТИЯ</p><h1>Категории автомобилей</h1><p>Записей в разделе — {{ items|length }}</p></div><a class="button" href="{% url 'factory:category_create' %}">Добавить запись</a></section>
+<div class="records">
+{% for item in items %}
+  <article class="record">
+    <h2><a href="{% url 'factory:category_detail' item.pk %}">{{ item }}</a></h2>
+    <div class="record-actions"><a href="{% url 'factory:category_detail' item.pk %}">Подробнее</a><a href="{% url 'factory:category_update' item.pk %}">Изменить</a><a href="{% url 'factory:category_delete' item.pk %}">Удалить</a></div>
+  </article>
+{% empty %}<p class="empty">В этом разделе пока нет записей. Добавьте первую.</p>{% endfor %}
+</div>
+{% endblock %}

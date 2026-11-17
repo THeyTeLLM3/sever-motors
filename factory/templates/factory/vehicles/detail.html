@@ -1,0 +1,16 @@
+{% extends "factory/base.html" %}
+{% block title %}{{ object }}{% endblock %}
+{% block content %}
+<a class="back" href="{% url 'factory:vehicle_list' %}">← Модельный ряд</a>
+<section class="detail-panel"><div><p class="eyebrow">МОДЕЛЬНЫЙ РЯД</p><h1>{{ object }}</h1><dl>
+<dt>Название</dt><dd>{{ object.name|default_if_none:"—" }}</dd>
+<dt>Категория</dt><dd><a href="{% url 'factory:category_detail' object.category.pk %}">{{ object.category|default_if_none:"—" }}</a></dd>
+<dt>Описание</dt><dd>{{ object.description|default_if_none:"—" }}</dd>
+<dt>Цена, руб.</dt><dd>{{ object.price|default_if_none:"—" }}</dd>
+<dt>Мощность, л. с.</dt><dd>{{ object.power|default_if_none:"—" }}</dd>
+<dt>Выпускается</dt><dd>{{ object.is_active|yesno:"Да,Нет" }}</dd>
+</dl></div>
+{% if object.photo %}<img class="detail-photo" src="{{ object.photo.url }}" alt="{{ object }}">{% else %}<p>Фотография пока не добавлена.</p>{% endif %}
+</section>
+<div class="actions"><a class="button" href="{% url 'factory:vehicle_update' object.pk %}">Изменить</a><a class="button" href="{% url 'factory:vehicle_delete' object.pk %}">Удалить</a><a href="{% url 'factory:vehicle_list' %}">Вернуться к списку</a></div>
+{% endblock %}

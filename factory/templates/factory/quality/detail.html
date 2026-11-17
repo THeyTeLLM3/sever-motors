@@ -1,0 +1,14 @@
+{% extends "factory/base.html" %}
+{% block title %}{{ object }}{% endblock %}
+{% block content %}
+<a class="back" href="{% url 'factory:quality_list' %}">← Проверки качества</a>
+<section class="detail-panel"><div><p class="eyebrow">ПРОВЕРКИ КАЧЕСТВА</p><h1>{{ object }}</h1><dl>
+<dt>Заказ</dt><dd><a href="{% url 'factory:order_detail' object.order.pk %}">{{ object.order|default_if_none:"—" }}</a></dd>
+<dt>Инспектор</dt><dd><a href="{% url 'factory:employee_detail' object.inspector.pk %}">{{ object.inspector|default_if_none:"—" }}</a></dd>
+<dt>Дата проверки</dt><dd>{{ object.checked_on|date:"d.m.Y" }}</dd>
+<dt>Проверка пройдена</dt><dd>{{ object.passed|yesno:"Да,Нет" }}</dd>
+<dt>Результаты проверки</dt><dd>{{ object.notes|default_if_none:"—" }}</dd>
+</dl></div>
+</section>
+<div class="actions"><a class="button" href="{% url 'factory:quality_update' object.pk %}">Изменить</a><a class="button" href="{% url 'factory:quality_delete' object.pk %}">Удалить</a><a href="{% url 'factory:quality_list' %}">Вернуться к списку</a></div>
+{% endblock %}

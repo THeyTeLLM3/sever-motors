@@ -1,0 +1,11 @@
+{% extends "factory/base.html" %}
+{% block title %}{% if object %}Изменить запись{% else %}Добавить запись{% endif %}{% endblock %}
+{% block content %}
+<a class="back" href="{% url 'factory:order_list' %}">← Производственные заказы</a>
+<section class="form-panel"><p class="eyebrow">ПРОИЗВОДСТВЕННЫЕ ЗАКАЗЫ</p><h1>{% if object %}Изменить запись{% else %}Добавить запись{% endif %}</h1>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <div class="actions"><button class="button" type="submit">Сохранить</button><a href="{% url 'factory:order_list' %}">Отмена</a></div>
+</form></section>
+{% endblock %}

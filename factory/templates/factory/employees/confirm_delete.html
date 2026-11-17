@@ -1,0 +1,10 @@
+{% extends "factory/base.html" %}
+{% block title %}Удалить запись{% endblock %}
+{% block content %}
+<a class="back" href="{% url 'factory:employee_list' %}">← Сотрудники</a>
+<section class="form-panel"><p class="eyebrow">СОТРУДНИКИ</p><h1>Удалить запись?</h1><p>Выбрано — <strong>{{ object }}</strong></p>
+{% if delete_error %}<p role="alert" class="errornote">{{ delete_error }}</p>{% else %}
+<p>Подтвердите удаление. После этого откроется список.</p>
+<form method="post">{% csrf_token %}<div class="actions"><button type="submit" class="button">Подтвердить удаление</button><a href="{% url 'factory:employee_detail' object.pk %}">Отмена</a></div></form>
+{% endif %}</section>
+{% endblock %}

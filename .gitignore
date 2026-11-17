@@ -4,3 +4,8 @@ __pycache__/
 *.py[cod]
 .vscode/
 db.sqlite3
+
+.env
+.postgres/
+media/*
+!media/demo/

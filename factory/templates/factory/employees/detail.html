@@ -1,0 +1,13 @@
+{% extends "factory/base.html" %}
+{% block title %}{{ object }}{% endblock %}
+{% block content %}
+<a class="back" href="{% url 'factory:employee_list' %}">← Сотрудники</a>
+<section class="detail-panel"><div><p class="eyebrow">СОТРУДНИКИ</p><h1>{{ object }}</h1><dl>
+<dt>ФИО</dt><dd>{{ object.full_name|default_if_none:"—" }}</dd>
+<dt>Должность</dt><dd>{{ object.position|default_if_none:"—" }}</dd>
+<dt>Цех</dt><dd><a href="{% url 'factory:workshop_detail' object.workshop.pk %}">{{ object.workshop|default_if_none:"—" }}</a></dd>
+<dt>Дата приёма</dt><dd>{{ object.hired_on|date:"d.m.Y" }}</dd>
+</dl></div>
+</section>
+<div class="actions"><a class="button" href="{% url 'factory:employee_update' object.pk %}">Изменить</a><a class="button" href="{% url 'factory:employee_delete' object.pk %}">Удалить</a><a href="{% url 'factory:employee_list' %}">Вернуться к списку</a></div>
+{% endblock %}

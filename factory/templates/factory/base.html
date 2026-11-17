@@ -28,6 +28,16 @@
         <a href="{% url 'factory:production' %}"{% if current == 'production' %} aria-current="page"{% endif %}>Производство</a>
       </nav>
     </div>
+<div class="wrap data-menu" aria-label="Таблицы предприятия">
+  <a href="{% url 'factory:category_list' %}">Категории автомобилей</a>
+  <a href="{% url 'factory:workshop_list' %}">Цеха</a>
+  <a href="{% url 'factory:supplier_list' %}">Поставщики</a>
+  <a href="{% url 'factory:vehicle_list' %}">Модельный ряд</a>
+  <a href="{% url 'factory:part_list' %}">Комплектующие</a>
+  <a href="{% url 'factory:employee_list' %}">Сотрудники</a>
+  <a href="{% url 'factory:order_list' %}">Производственные заказы</a>
+  <a href="{% url 'factory:quality_list' %}">Проверки качества</a>
+</div>
   </header>
   <main class="wrap">
     {% block content %}{% endblock %}

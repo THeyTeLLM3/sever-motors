@@ -1,0 +1,17 @@
+{% extends "factory/base.html" %}
+{% block title %}Комплектующие{% endblock %}
+{% block content %}
+<section class="section-heading"><div><p class="eyebrow">ДАННЫЕ ПРЕДПРИЯТИЯ</p><h1>Комплектующие</h1><p>Записей в разделе — {{ items|length }}</p></div><a class="button" href="{% url 'factory:part_create' %}">Добавить запись</a></section>
+<div class="records">
+{% for item in items %}
+  <article class="record">
+    {% if item.photo %}<img class="record-photo" src="{{ item.photo.url }}" alt="{{ item }}">{% else %}<p class="no-photo">Фото не добавлено</p>{% endif %}
+    <h2><a href="{% url 'factory:part_detail' item.pk %}">{{ item }}</a></h2>
+    <p>Артикул — {{ item.article }}</p>
+    <p>Поставщик — {{ item.supplier }}</p>
+    <p>Цена, руб. — {{ item.price }}</p>
+    <div class="record-actions"><a href="{% url 'factory:part_detail' item.pk %}">Подробнее</a><a href="{% url 'factory:part_update' item.pk %}">Изменить</a><a href="{% url 'factory:part_delete' item.pk %}">Удалить</a></div>
+  </article>
+{% empty %}<p class="empty">В этом разделе пока нет записей. Добавьте первую.</p>{% endfor %}
+</div>
+{% endblock %}
